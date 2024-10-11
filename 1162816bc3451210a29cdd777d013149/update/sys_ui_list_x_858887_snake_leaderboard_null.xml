@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="x_858887_snake_leaderboard" version="2" view="">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>score</element>
+            <list_id display_value="x_858887_snake_leaderboard" element="NULL" name="x_858887_snake_leaderboard" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">a63d09e7c3c51210a29cdd777d013106</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>tiffany.stallings</sys_created_by>
+            <sys_created_on>2024-10-10 20:17:45</sys_created_on>
+            <sys_id>2a3d09e7c3c51210a29cdd777d013107</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>tiffany.stallings</sys_updated_by>
+            <sys_updated_on>2024-10-10 20:17:45</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>user</element>
+            <list_id display_value="x_858887_snake_leaderboard" element="NULL" name="x_858887_snake_leaderboard" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">a63d09e7c3c51210a29cdd777d013106</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>tiffany.stallings</sys_created_by>
+            <sys_created_on>2024-10-10 20:17:45</sys_created_on>
+            <sys_id>ae3d09e7c3c51210a29cdd777d013107</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>tiffany.stallings</sys_updated_by>
+            <sys_updated_on>2024-10-10 20:17:45</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>x_858887_snake_leaderboard</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>tiffany.stallings</sys_created_by>
+            <sys_created_on>2024-10-10 20:17:45</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a63d09e7c3c51210a29cdd777d013106</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_858887_snake_leaderboard</sys_name>
+            <sys_package display_value="SNake" source="x_858887_snake">1162816bc3451210a29cdd777d013149</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="SNake">1162816bc3451210a29cdd777d013149</sys_scope>
+            <sys_update_name>sys_ui_list_x_858887_snake_leaderboard_null</sys_update_name>
+            <sys_updated_by>tiffany.stallings</sys_updated_by>
+            <sys_updated_on>2024-10-10 20:17:45</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

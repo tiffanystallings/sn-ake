@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role">
+    <sys_user_role action="DELETE">
+        <assignable_by/>
+        <can_delegate>true</can_delegate>
+        <description/>
+        <elevated_privilege>false</elevated_privilege>
+        <grantable>true</grantable>
+        <includes_roles/>
+        <name>x_858887_snake.player</name>
+        <scoped_admin>false</scoped_admin>
+        <suffix>x_858887_snake.player</suffix>
+        <sys_class_name>sys_user_role</sys_class_name>
+        <sys_created_by>tiffany.stallings</sys_created_by>
+        <sys_created_on>2024-10-10 19:31:06</sys_created_on>
+        <sys_id>c382056bc3451210a29cdd777d01319e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_858887_snake.player</sys_name>
+        <sys_package display_value="SNake" source="x_858887_snake">1162816bc3451210a29cdd777d013149</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SNake">1162816bc3451210a29cdd777d013149</sys_scope>
+        <sys_update_name>sys_user_role_c382056bc3451210a29cdd777d01319e</sys_update_name>
+        <sys_updated_by>tiffany.stallings</sys_updated_by>
+        <sys_updated_on>2024-10-10 19:31:06</sys_updated_on>
+    </sys_user_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SNake">1162816bc3451210a29cdd777d013149</application>
+        <file_path/>
+        <instance_id>c808860a1b1e0e50a43dcb7b234bcbd6</instance_id>
+        <instance_name>dev272954</instance_name>
+        <name>sys_user_role_c382056bc3451210a29cdd777d01319e</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role"><sys_user_role action="INSERT_OR_UPDATE"><assignable_by/><can_delegate>true</can_delegate><description/><elevated_privilege>false</elevated_privilege><grantable>true</grantable><includes_roles/><name>x_858887_snake.player</name><scoped_admin>false</scoped_admin><suffix>x_858887_snake.player</suffix><sys_class_name>sys_user_role</sys_class_name><sys_created_by>tiffany.stallings</sys_created_by><sys_created_on>2024-10-10 19:31:06</sys_created_on><sys_id>c382056bc3451210a29cdd777d01319e</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_858887_snake.player</sys_name><sys_package display_value="SNake" source="x_858887_snake">1162816bc3451210a29cdd777d013149</sys_package><sys_policy/><sys_scope display_value="SNake">1162816bc3451210a29cdd777d013149</sys_scope><sys_update_name>sys_user_role_c382056bc3451210a29cdd777d01319e</sys_update_name><sys_updated_by>tiffany.stallings</sys_updated_by><sys_updated_on>2024-10-10 19:31:06</sys_updated_on></sys_user_role></record_update>]]></payload>
+        <payload_hash>165024161</payload_hash>
+        <record_name>x_858887_snake.player</record_name>
+        <reverted_from/>
+        <source>9962816bc3451210a29cdd777d01314d</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>tiffany.stallings</sys_created_by>
+        <sys_created_on>2024-10-10 19:31:06</sys_created_on>
+        <sys_id>cb82056bc3451210a29cdd777d0131a1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19277e9d6120000001</sys_recorded_at>
+        <sys_updated_by>tiffany.stallings</sys_updated_by>
+        <sys_updated_on>2024-10-10 19:31:06</sys_updated_on>
+        <type>Role</type>
+        <update_guid>cf82056b754512107a9643dbd648a4a0</update_guid>
+        <update_guid_history>cf82056b754512107a9643dbd648a4a0:165024161</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="x_858887_snake.player">ef82d16fc3091210a29cdd777d0131d5</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>tiffany.stallings</sys_created_by>
+        <sys_created_on>2024-10-10 20:41:02</sys_created_on>
+        <sys_db_object display_value="" name="sys_user_role">sys_user_role</sys_db_object>
+        <sys_id>206dddc8ce8f48ef977dd570ae853501</sys_id>
+        <sys_metadata>c382056bc3451210a29cdd777d01319e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_858887_snake.player</sys_name>
+        <sys_package display_value="SNake" source="x_858887_snake">1162816bc3451210a29cdd777d013149</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="SNake">1162816bc3451210a29cdd777d013149</sys_scope>
+        <sys_scope_delete display_value="">15186e47673e44adb959138c9fb83991</sys_scope_delete>
+        <sys_update_name>sys_user_role_c382056bc3451210a29cdd777d01319e</sys_update_name>
+        <sys_update_version display_value="sys_user_role_c382056bc3451210a29cdd777d01319e">cb82056bc3451210a29cdd777d0131a1</sys_update_version>
+        <sys_updated_by>tiffany.stallings</sys_updated_by>
+        <sys_updated_on>2024-10-10 20:41:02</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

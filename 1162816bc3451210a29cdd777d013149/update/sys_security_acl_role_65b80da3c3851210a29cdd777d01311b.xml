@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>tiffany.stallings</sys_created_by>
+        <sys_created_on>2024-10-10 19:58:01</sys_created_on>
+        <sys_id>65b80da3c3851210a29cdd777d01311b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_858887_snake_leaderboard.x_858887_snake.admin</sys_name>
+        <sys_package display_value="SNake" source="x_858887_snake">1162816bc3451210a29cdd777d013149</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SNake">1162816bc3451210a29cdd777d013149</sys_scope>
+        <sys_security_acl display_value="x_858887_snake_leaderboard">ddb8c9a3c3851210a29cdd777d0131fe</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_65b80da3c3851210a29cdd777d01311b</sys_update_name>
+        <sys_updated_by>tiffany.stallings</sys_updated_by>
+        <sys_updated_on>2024-10-10 19:58:01</sys_updated_on>
+        <sys_user_role display_value="x_858887_snake.admin" name="x_858887_snake.admin">3a828de7c3451210a29cdd777d0131ba</sys_user_role>
+    </sys_security_acl_role>
+</record_update>
