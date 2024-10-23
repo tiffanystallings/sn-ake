@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Create and impersonate user with the following values:
+First name = Player
+and Last name = Uer</description>
+        <display_name>Create a User</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>8</order>
+        <step_config display_value="Create a User">d9bc5f21ff6033008d3f5d9ad53bf12d</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>tiffany.stallings</sys_created_by>
+        <sys_created_on>2024-10-11 21:32:20</sys_created_on>
+        <sys_id>057722ffc3c11210a29cdd777d0131b4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Create a User</sys_name>
+        <sys_package display_value="SNake" source="x_858887_snake">1162816bc3451210a29cdd777d013149</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SNake">1162816bc3451210a29cdd777d013149</sys_scope>
+        <sys_update_name>sys_atf_step_057722ffc3c11210a29cdd777d0131b4</sys_update_name>
+        <sys_updated_by>tiffany.stallings</sys_updated_by>
+        <sys_updated_on>2024-10-11 21:32:20</sys_updated_on>
+        <table>sys_user</table>
+        <test display_value="SNake Leaderboard Access">7832d92fc3091210a29cdd777d0131af</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=057722ffc3c11210a29cdd777d0131b4"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>057722ffc3c11210a29cdd777d0131b4</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>tiffany.stallings</sys_created_by>
+        <sys_created_on>2024-10-11 21:32:20</sys_created_on>
+        <sys_id>30e722ffc3c11210a29cdd777d0131f8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>tiffany.stallings</sys_updated_by>
+        <sys_updated_on>2024-10-11 21:32:20</sys_updated_on>
+        <value>Uer</value>
+        <variable display_value="Last name">6f69fc4aff6433008d3f5d9ad53bf18c</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>057722ffc3c11210a29cdd777d0131b4</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>tiffany.stallings</sys_created_by>
+        <sys_created_on>2024-10-11 21:32:21</sys_created_on>
+        <sys_id>3ce722ffc3c11210a29cdd777d0131f8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>tiffany.stallings</sys_updated_by>
+        <sys_updated_on>2024-10-11 21:32:21</sys_updated_on>
+        <value/>
+        <variable display_value="User field values">1778a7480f20101091d0f00c97767e03</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>057722ffc3c11210a29cdd777d0131b4</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>tiffany.stallings</sys_created_by>
+        <sys_created_on>2024-10-11 21:32:21</sys_created_on>
+        <sys_id>78e722ffc3c11210a29cdd777d0131f8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>tiffany.stallings</sys_updated_by>
+        <sys_updated_on>2024-10-11 21:32:21</sys_updated_on>
+        <value>sys_user</value>
+        <variable display_value="Table">ff06ab840f20101091d0f00c97767e6d</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>057722ffc3c11210a29cdd777d0131b4</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>tiffany.stallings</sys_created_by>
+        <sys_created_on>2024-10-11 21:32:20</sys_created_on>
+        <sys_id>7ce722ffc3c11210a29cdd777d0131f7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>tiffany.stallings</sys_updated_by>
+        <sys_updated_on>2024-10-11 21:32:20</sys_updated_on>
+        <value/>
+        <variable display_value="Roles">8c07aba5ff6033008d3f5d9ad53bf13b</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>057722ffc3c11210a29cdd777d0131b4</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>tiffany.stallings</sys_created_by>
+        <sys_created_on>2024-10-11 21:32:21</sys_created_on>
+        <sys_id>b4e722ffc3c11210a29cdd777d0131f8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>tiffany.stallings</sys_updated_by>
+        <sys_updated_on>2024-10-11 21:32:21</sys_updated_on>
+        <value>Player</value>
+        <variable display_value="First name">1985e0ceff2433008d3f5d9ad53bf1ba</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>057722ffc3c11210a29cdd777d0131b4</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>tiffany.stallings</sys_created_by>
+        <sys_created_on>2024-10-11 21:32:20</sys_created_on>
+        <sys_id>b8e722ffc3c11210a29cdd777d0131f7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>tiffany.stallings</sys_updated_by>
+        <sys_updated_on>2024-10-11 21:32:20</sys_updated_on>
+        <value>1</value>
+        <variable display_value="Impersonate this user">98c44875ffa033008d3f5d9ad53bf1fa</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>057722ffc3c11210a29cdd777d0131b4</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>tiffany.stallings</sys_created_by>
+        <sys_created_on>2024-10-11 21:32:20</sys_created_on>
+        <sys_id>f0e722ffc3c11210a29cdd777d0131f8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>tiffany.stallings</sys_updated_by>
+        <sys_updated_on>2024-10-11 21:32:20</sys_updated_on>
+        <value/>
+        <variable display_value="Groups">b27b2b29ff6033008d3f5d9ad53bf164</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_atf_input_variable_d9bc5f21ff6033008d3f5d9ad53bf12d^id=057722ffc3c11210a29cdd777d0131b4"/>
+</record_update>

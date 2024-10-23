@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>sample</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>canvas { width: 100%; max-width: 420px; }</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>snake</id>
+        <internal>false</internal>
+        <link><![CDATA[function breakout(scope, elm) {
+	class DrawableSquare {
+		constructor(ctx, canvas, height, width, posX, posY, color) {
+			this.ctx = ctx;
+			this.canvas = canvas;
+			this.height = height;
+			this.width = width;
+			this.posX = posX;
+			this.posY = posY;
+			this.color = color;
+		}
+
+		draw() {
+			this.ctx.beginPath();
+			this.ctx.rect(this.posX, this.posY, this.width, this.height);
+			this.ctx.fillStyle = this.color;
+			this.ctx.fill();
+			this.ctx.closePath();
+		}
+
+		checkSnakeCollision(snake) {
+			if (snake.posX + snake.width >= this.posX + 1
+				&& snake.posX <= this.posX + this.width - 1
+				&& snake.posY + snake.height >= this.posY + 1
+				&& snake.posY <= this.posY + this.height - 1) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+
+	class SnakeBody extends DrawableSquare {
+		constructor(ctx, canvas, height, width, posX, posY, speed, color) {
+			super(ctx, canvas, height, width, posX, posY, color);
+			this.speed = speed;
+			this.direction = DIRECTION_UP;
+		}
+
+		moveRight(speed=this.speed) {
+			this.direction = DIRECTION_RIGHT;
+			if (this.posX < this.canvas.width - this.width) {
+				this.posX += speed;
+			} else {
+				this.posX = 0;
+			}
+		}
+
+		moveLeft(speed=this.speed) {
+			this.direction = DIRECTION_LEFT;
+			if (this.posX > 0) {
+				this.posX -= speed;
+			} else {
+				this.posX = this.canvas.width - this.width;
+			}
+		}
+
+		moveUp(speed=this.speed) {
+			this.direction = DIRECTION_UP;
+			if (this.posY > 0) {
+				this.posY -= speed;
+			} else {
+				this.posY = this.canvas.height - this.height;
+			}
+		}
+
+		moveDown(speed=this.speed) {
+			this.direction = DIRECTION_DOWN;
+			if (this.posY < this.canvas.height - this.height) {
+				this.posY += speed;
+			} else {
+				this.posY = 0;
+			}
+		}
+	}
+
+	class SnakeHead extends SnakeBody {
+		constructor(ctx, canvas, height, width, posX, posY, speed, color) {
+			super(ctx, canvas, height, width, posX, posY, speed, color);
+
+			this.body = [];
+			this.directionHistory = [];
+		}
+
+		getLastBody() {
+			if (this.body.length === 0) {
+				return this;
+			} 
+
+			return this.body[this.body.length - 1];
+		}
+
+		addToBody(food) {
+			var lastBody = this.getLastBody();
+			
+			var dx = 0;
+			var dy = 0;
+
+			if (this.direction === DIRECTION_LEFT) {
+				dx = this.width;
+			} else if (this.direction === DIRECTION_RIGHT) {
+				dx -= food.width;
+			} else if (this.direction === DIRECTION_UP) {
+				dy = this.height;
+			} else if (this.direction === DIRECTION_DOWN) {
+				dy -= food.height;
+			}
+
+			var nextBody = new SnakeBody(this.ctx, 
+										this.canvas, 
+										food.height, 
+										food.width, 
+										lastBody.posX + dx, 
+										lastBody.posY + dy, 
+										this.speed, 
+										food.color);
+			
+			this.body.push(nextBody);
+		}
+
+		setDirection(direction) {
+			if (this.directionHistory.length < this.body.length + 1) {
+				this.directionHistory.unshift(this.direction);
+			}
+
+			switch (direction) {
+				case DIRECTION_LEFT:
+					snake.moveLeft();
+					break;
+				case DIRECTION_RIGHT:
+					snake.moveRight();
+					break;
+				case DIRECTION_UP:
+					snake.moveUp();
+					break;
+				case DIRECTION_DOWN:
+					snake.moveDown();
+					break;
+				default:
+					snake.moveUp();
+			}
+
+			this.moveBody();
+		}
+
+		moveBody() {
+			this.body.forEach((elem, index) => {
+				let direction = this.directionHistory[index];
+
+				switch (direction) {
+					case DIRECTION_LEFT:
+						elem.moveLeft();
+						break;
+					case DIRECTION_RIGHT:
+						elem.moveRight();
+						break;
+					case DIRECTION_UP:
+						elem.moveUp();
+						break;
+					case DIRECTION_DOWN:
+						elem.moveDown();
+						break;
+					default:
+						elem.moveUp();
+				}
+			});
+			
+			// drop the oldest direction from history for cleanliness
+			this.directionHistory.pop();
+		}
+	}
+
+	class SnakeFood extends DrawableSquare {
+		constructor(ctx, canvas, height, width, posX, posY, color, value) {
+			super(ctx, canvas, height, width, posX, posY, color);
+			
+			this.value = value;
+		}
+	}
+
+	elm = elm.contents();
+	var canvas = $(elm).find('canvas')[0];
+	var ctx = canvas.getContext("2d");
+
+	var score = 0;
+	var lives = 3;
+	var gameover = false;
+	var color = "#428bca";
+	var color2 = "#D1222B";
+	var touchX,touchY;
+
+	var KEY_W = 87;
+	var KEY_A = 65;
+	var KEY_S = 83;
+	var KEY_D = 68;
+	var KEY_UP = 38;
+	var KEY_DOWN = 40;
+	var KEY_LEFT = 37;
+	var KEY_RIGHT = 39;
+	var KEY_SPACE = 32;
+
+	var DIRECTION_LEFT = "LEFT";
+	var DIRECTION_RIGHT = "RIGHT";
+	var DIRECTION_UP = "UP";
+	var DIRECTION_DOWN = "DOWN";
+
+	var currentDirection = DIRECTION_UP;
+
+	var paused = false;
+
+	var snakeHeight = 5;
+	var snakeWidth = 5;
+	var snakeX = (canvas.width-snakeWidth)/2;
+	var snakeY = canvas.height-snakeHeight;
+	var snakeSpeed = 5;
+
+	document.addEventListener("keydown", keyDownHandler, false);
+	document.addEventListener("keyup", keyUpHandler, false);
+
+	// React to touch events on the canvas
+	canvas.addEventListener('touchstart', canvasTouchStart, false);
+	canvas.addEventListener('touchmove', canvasTouchMove, false);
+
+	var snake = new SnakeHead(ctx, canvas, snakeHeight, snakeWidth, snakeX, snakeY, snakeSpeed, color);
+	var food = [new SnakeFood(ctx, canvas, 5, 5, 50, 50, color2, 100)];
+
+	function keyDownHandler(e) {
+		if (!paused) {
+			if(e.keyCode === KEY_D || e.keyCode === KEY_RIGHT) {
+				currentDirection = DIRECTION_RIGHT;
+			}
+			if(e.keyCode === KEY_A || e.keyCode === KEY_LEFT) {
+				currentDirection = DIRECTION_LEFT;
+			}
+			if(e.keyCode === KEY_W || e.keyCode === KEY_UP) {
+				currentDirection = DIRECTION_UP;
+			}
+			if(e.keyCode === KEY_S || e.keyCode === KEY_DOWN) {
+				currentDirection = DIRECTION_DOWN;
+			}
+		}
+	}
+
+	function keyUpHandler(e) {
+		if(e.keyCode === KEY_SPACE)
+			paused = !paused;
+	}
+
+	function canvasTouchStart() {
+		getTouchPos();
+		snakeX = touchX;
+		snakeY = touchY;
+		event.preventDefault();
+	}
+
+	function canvasTouchMove(e) { 
+		getTouchPos(e);
+		snakeX = touchX;
+		snakeY = touchY;
+		event.preventDefault();
+	}
+
+	function getTouchPos(e) {
+		if (!e)
+			var e = event;
+
+		if(e.touches) {
+			if (e.touches.length == 1) { // Only deal with one finger
+				var touch = e.touches[0]; // Get the information for finger #1
+				touchX=touch.pageX-touch.target.offsetLeft;
+				touchY=touch.pageY-touch.target.offsetTop;
+			}
+		}
+	}
+
+	function collisionDetection() {
+		food.forEach((elem, index) => {
+			if(elem.checkSnakeCollision(snake)) {
+				score += elem.value;
+				snake.addToBody(elem);
+				food.splice(index, 1);
+			}
+		});
+
+		snake.body.forEach((elem, index) => {
+			if (index > 0 && elem.checkSnakeCollision(snake)) {
+				console.log('colliding');
+			}
+		});
+	}
+
+	function drawFood() {
+		food.forEach(elem => elem.draw());
+	}
+
+	function drawSnake() {
+		snake.draw();
+
+		snake.body.forEach(elem => elem.draw());
+	}
+
+	function drawScore() {
+		ctx.font = "16px Arial";
+		ctx.fillStyle = color;
+		ctx.textAlign = "left";
+		ctx.fillText("Score: "+score, 8, 20);
+	}
+
+	function drawLives() {
+		ctx.font = "16px Arial";
+		ctx.fillStyle = color;
+		ctx.fillText("Lives: "+lives, canvas.width-65, 20);
+	}
+
+	function drawMessage(text) {
+
+		var loc = (canvas.width)/2;
+		ctx.textAlign="center"; 
+		ctx.font = "24px Arial";
+		ctx.fillStyle = color2;
+		ctx.fillText(text, loc, 150);
+	}
+
+	function draw() {
+		if (!paused) {
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			drawFood();
+			drawSnake();
+			drawScore();
+			drawLives();
+			collisionDetection();
+			snake.setDirection(currentDirection);
+		} else {
+			drawMessage("Paused");
+		}
+
+		if (gameover==false)
+			requestAnimationFrame(draw);
+	}
+
+	draw();
+}
+
+/**
+ * Snake movement thoughts:
+ * For every extension, a history of the last frame's movement needs to be
+ * remembered.
+ * Where do new extensions go? Either on head or tail as tail moves through.
+ */]]></link>
+        <name>SNake Game</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>tiffany.stallings</sys_created_by>
+        <sys_created_on>2024-10-17 18:41:53</sys_created_on>
+        <sys_id>1e6a7879c3111210a29cdd777d0131a1</sys_id>
+        <sys_mod_count>74</sys_mod_count>
+        <sys_name>SNake Game</sys_name>
+        <sys_package display_value="SNake" source="x_858887_snake">1162816bc3451210a29cdd777d013149</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SNake">1162816bc3451210a29cdd777d013149</sys_scope>
+        <sys_update_name>sp_widget_1e6a7879c3111210a29cdd777d0131a1</sys_update_name>
+        <sys_updated_by>tiffany.stallings</sys_updated_by>
+        <sys_updated_on>2024-10-23 18:02:41</sys_updated_on>
+        <template><![CDATA[<div class="text-center">
+  <canvas class="b bg-white" id="snake" width="420" height="320"></canvas>
+  <div class="text-muted">${Control using keyboard arrow keys}</div>
+</div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>1e6a7879c3111210a29cdd777d0131a1</id>
+        <sys_created_by>tiffany.stallings</sys_created_by>
+        <sys_created_on>2024-10-17 18:42:20</sys_created_on>
+        <sys_id>c58a3c79c3111210a29cdd777d013164</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>tiffany.stallings</sys_updated_by>
+        <sys_updated_on>2024-10-17 18:42:20</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
